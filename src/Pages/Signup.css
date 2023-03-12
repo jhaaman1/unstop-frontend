@@ -1,0 +1,66 @@
+.heading-signup{
+    font-weight: 500;
+    font-size: 36px !important;
+    line-height: 44px;
+    color: #1c4980;
+    text-align: center;
+    font-family: "Inter",sans-serif!important;
+}
+
+body {
+    font-family: "Inter",sans-serif!important;
+    /* overflow-wrap: break-word; */
+}
+
+.firstname-label{
+    color: #1c4980;
+    font-weight: 500;
+    font-size: 14px !important;
+    line-height: 15px;
+    font-family: "Inter",sans-serif!important;
+    margin-bottom: 10px;
+}
+
+.form-main{
+    /* border: 1px solid red; */
+    width: 40% !important;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+.form-main input{
+    height: 48px !important;
+}
+
+.select-sign{
+    height: 48px !important;
+    width: 280px !important;
+}
+
+.phone-numbr{
+    width: 46% !important;
+    margin-left: 5px;
+}
+
+.countrycode{
+    width: 50% !important;
+}
+
+.signup-checkbox{
+    color: #1c4980;
+    font-size: 14px;
+    font-weight: 500;
+    height: auto;
+    line-height: normal;
+    padding-left: 10px;
+    /* margin: 7p; */
+}
+
+.login-already{
+    font-size: 12px;
+    line-height: 16px;
+    color: #1c4980;
+    margin-top: 10px;
+    text-align: center;
+    
+}

@@ -1,0 +1,47 @@
+.logincontainer{
+    width: 50%;
+    margin: auto;
+    margin-top: 4rem;
+}
+
+.heading-login{
+    font-weight: 500;
+    font-size: 36px !important;
+    line-height: 44px;
+    color: #1c4980;
+    text-align: center;
+    font-family: "Inter",sans-serif!important;
+}
+
+.email-label{
+    color: #1c4980;
+    font-weight: 500;
+    font-size: 14px !important;
+    line-height: 15px;
+    font-family: "Inter",sans-serif!important;
+    margin-bottom: 10px;
+}
+
+
+.inputbox{
+    /* border: 1px solid; */
+    width: 70%;
+    margin: auto;
+}
+
+.loginbutton{
+    width: 100%;
+    color: white;
+    background-color: #1c4980;
+    margin: auto;
+    margin-top: 1rem;
+
+}
+
+.login-not{
+    font-size: 12px;
+    line-height: 16px;
+    color: #1c4980;
+    margin-top: 10px;
+    text-align: center;
+}
