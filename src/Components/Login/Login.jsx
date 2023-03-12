@@ -5,7 +5,7 @@ import "./Login.css";
 
 const Login = () => {
   return (
-    <Box className="logincontainer">
+    <Box className="logincontainer" >
       <Heading fontSize={{ base: "2xl", md: "4xl" }} className="heading-login">
         Welcome Back
       </Heading>
@@ -14,7 +14,7 @@ const Login = () => {
         <FormControl isRequired>
           <Box>
             <FormLabel
-              fontSize={{ base: "md", md: "lg" }}
+              fontSize={["30%","50%","80%"]}
               mt="4"
               ml="2"
               className="email-label"
@@ -23,7 +23,7 @@ const Login = () => {
             </FormLabel>
             <Input
               type="text"
-              fontSize={{ base: "md", md: "lg" }}
+              fontSize={["30%","50%","80%"]}
               placeholder="Email"
             />
           </Box>

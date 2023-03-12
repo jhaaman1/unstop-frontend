@@ -1,3 +1,9 @@
+.signupformbox{
+    width: 40%;
+    margin: auto;
+    margin-top: 3rem;
+    /* border: 2px solid; */
+}
 .heading-signup{
     font-weight: 500;
     font-size: 36px !important;
@@ -6,6 +12,7 @@
     text-align: center;
     font-family: "Inter",sans-serif!important;
 }
+
 
 body {
     font-family: "Inter",sans-serif!important;
@@ -21,12 +28,6 @@ body {
     margin-bottom: 10px;
 }
 
-.form-main{
-    /* border: 1px solid red; */
-    width: 40% !important;
-    margin: auto;
-    margin-top: 1rem;
-}
 
 .form-main input{
     height: 48px !important;
@@ -34,26 +35,21 @@ body {
 
 .select-sign{
     height: 48px !important;
-    width: 280px !important;
+    width: 276px !important;
 }
 
 .phone-numbr{
     width: 46% !important;
-    margin-left: 5px;
+    margin-left: 11px;
 }
 
-.countrycode{
-    width: 50% !important;
-}
 
 .signup-checkbox{
     color: #1c4980;
-    font-size: 14px;
+    font-size: 14px !important;
     font-weight: 500;
     height: auto;
     line-height: normal;
-    padding-left: 10px;
-    /* margin: 7p; */
 }
 
 .login-already{
@@ -62,5 +58,5 @@ body {
     color: #1c4980;
     margin-top: 10px;
     text-align: center;
-    
+
 }
