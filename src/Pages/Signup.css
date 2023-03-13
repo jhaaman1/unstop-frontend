@@ -4,6 +4,7 @@
     margin-top: 3rem;
     /* border: 2px solid; */
 }
+
 .heading-signup{
     font-weight: 500;
     font-size: 36px !important;
@@ -34,13 +35,12 @@ body {
 }
 
 .select-sign{
-    height: 48px !important;
-    width: 276px !important;
+    height: 40px !important;
+    width: 252px !important;
 }
 
 .phone-numbr{
-    width: 46% !important;
-    margin-left: 11px;
+    width: 39% !important;
 }
 
 

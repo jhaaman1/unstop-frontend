@@ -1,5 +1,6 @@
 import { Box, Button, FormControl, FormLabel, Heading, Input } from "@chakra-ui/react";
 import React from "react";
+import { Link } from "react-router-dom";
 import PasswordInput from "../Password/PasswordInput";
 import "./Login.css";
 
@@ -41,7 +42,7 @@ const Login = () => {
 
           <Button variant={'outline'} className="loginbutton">Login</Button>
 
-          <Box className="login-not">Don't have an account? <span><a href="login">Sign Up</a></span></Box>
+          <Box className="login-not">Don't have an account? <span><Link to="/signup">Sign Up</Link></span></Box>
         </FormControl>
       </Box>
     </Box>

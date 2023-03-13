@@ -8,7 +8,8 @@ function PasswordInput() {
     return (
       <InputGroup size='md'>
         <Input
-          pr='4.5rem'
+        // pr='4.5rem'
+          pr='1.2rem'
           type={show ? 'text' : 'password'}
           placeholder='Enter password'
         />

@@ -1,0 +1,124 @@
+.nav{
+    /* border: 2px solid red; */
+    width: 78%;
+    margin: auto;
+}
+
+.logo-text{
+    border-left: 1px solid rgba(39,73,125,.5);
+    padding-left: 8px;
+    margin-left: 5px;
+    color: #1c4980;
+    font-size: 10px;
+    cursor: pointer;
+    overflow-wrap: break-word;
+}
+
+.logo span strong{
+    display: block;
+    font-size: 12px;
+}
+
+strong{
+    font-weight: 500;
+}
+
+.imagelogo{
+    aspect-ratio: auto 82/32;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+    box-sizing: inherit;
+    border-radius: 20px;
+}
+
+.single-menu-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 3px;
+    margin: 0 12px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    transition: .4s;
+    color: #3e6493;
+}
+
+.single-menu-item ::before{
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #0073e6 !important;
+    transform: scale(0);
+    transition: .4s;
+}
+
+.single-menu-item .m_icons{
+    transition: .4s;
+}
+
+.icon-learn{
+    background-position: 0px -34px !important;
+}
+.icon-practice{
+    background-position: 0px -68px !important;
+}
+.icon-compete{
+    background-position: 0px -102px !important;
+}
+.icon-mentor{
+    background-position: 0px -170px !important;
+}
+.icon-jobs{
+    background-position: 0px -136px !important;
+}
+
+.m_icons{
+    height: 24px;
+    width: 24px;
+    background: url(https://d8it4huxumps7.cloudfront.net/uploads/images/menu/menu-spirit-icons.svg) no-repeat;
+
+}
+
+.single-menu-item:hover{
+    border-bottom: 5px solid #0073e6 !important;
+    /* border: 2px solid #0073e6 !important; */
+}
+
+.host{
+    height: 34px;
+    border-radius: 50px;
+    justify-content: center;
+    color: #fff;
+    font-weight: 500;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    background: #1C4980;
+    padding: 0 15px;
+}
+
+.loginbtn{
+    /* height: 14px;
+    filter: brightness(0) invert(1);
+    margin-left: 5px;
+*/
+    height: 34px;
+    background: #0073e6;
+    border: 1px solid #0073e6;
+    border-radius: 50px;
+    justify-content: center;
+    color: #fff;
+    font-weight: 500;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    transition: .3s;
+    padding: 0 15px;
+    margin-left: 15px; 
+}
