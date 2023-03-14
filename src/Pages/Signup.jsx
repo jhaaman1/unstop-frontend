@@ -2,17 +2,22 @@ import {
   Box,
   Button,
   Checkbox,
+  Divider,
   Flex,
   FormControl,
   FormLabel,
   Heading,
   Hide,
+  Image,
   Input,
   InputGroup,
   InputLeftAddon,
   Select,
+  Spacer,
+  Text,
   useToast,
 } from "@chakra-ui/react";
+import axios from "axios";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useNavigate } from "react-router-dom";
@@ -23,9 +28,9 @@ import "./Signup.css";
 
 const Signup = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const isAuth = useSelector((store) => store.AuthReducer.isAuth);
-  const toast = useToast();
+  // const dispatch = useDispatch();
+  // const isAuth = useSelector((store) => store.AuthReducer.isAuth);
+  // const toast = useToast();
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
   const [username, setUserName] = useState("");
@@ -35,41 +40,84 @@ const Signup = () => {
   const [organisation, setOrganisation] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if(firstname,lastname,username,gender,email,phone,organisation,password,confirmPassword){
-      dispatch(
-        userSignup({
-          firstname: firstname,
-          lastname: lastname,
-          username: username,
-          gender: gender,
-          email: email,
-          phone: phone,
-          organisation: organisation,
-          password: password,
-          confirmPassword: confirmPassword
-        })
-      )
-      .then(() => {
-        toast({
-          title: "Authentication successful!",
-          status: "success",
-          isClosable: true,
-        });
+  // const handleSubmit = (e) => {
+
+  //   e.preventDefault();
+  //   if(firstname,lastname,username,gender,email,phone,organisation,password,confirmPassword){
+  //     dispatch(
+  //       userSignup({
+  //         firstname: firstname,
+  //         lastname: lastname,
+  //         username: username,
+  //         gender: gender,
+  //         email: email,
+  //         phone: phone,
+  //         organisation: organisation,
+  //         password: password,
+  //         confirmPassword: confirmPassword
+  //       })
+  //     )
+  //     .then(() => {
+  //       toast({
+  //         title: "Authentication successful!",
+  //         status: "success",
+  //         isClosable: true,
+  //       });
+  //     })
+  //     .catch(() => {
+  //       toast({
+  //         title: "Something went wrong",
+  //         status: "error",
+  //         isClosable: true,
+  //       });
+  //     });
+  //   }
+  // }
+
+  
+  // isAuth ? (<Navigate to='/user'/>) :
+
+  const handleSignup = () => {
+    const payload = {
+      email: email,
+      password: password,
+    };
+    axios
+      .post(`http://localhost:8080/user/signup`, payload)
+      .then((r) => {
+        console.log(r.data);
+        navigate("/login");
       })
-      .catch(() => {
-        toast({
-          title: "Something went wrong",
-          status: "error",
-          isClosable: true,
-        });
-      });
-    }
-  }
+      .catch(
+        (e) => setError(true)
+        // console.log(e)
+      );
+  };
+  // const handleGoogleLogin = async () => {
+  //   await axios
+  //     .get("http://localhost:8080/auth/google", {
+  //       headers: {
+  //         "Access-Control-Allow-Origin": "*",
+  //         "Content-Type": "application/json",
+  //         "Referrer-Policy": "no-referrer, strict-origin-when-cross-origin",
+  //       },
+  //     })
+  //     .then((r) => {
+  //       console.log(r);
+  //       if (r.data.token) {
+  //         localStorage.setItem("login_token", r.data.token);
+  //         localStorage.setItem("email", r.data.email);
+  //         navigate("/clockify/");
+  //       }
+  //     })
+  //     .catch((e) => {
+  //       console.log(e);
+  //     });
+  // };
 
-  return isAuth ? (<Navigate to='/user'/>) : (
+  return (
     <Box display={"flex"} gap="10%" width="100%" h={"100vh"}>
       <Hide breakpoint="(max-width: 500px)">
         <Box width="45%" border={"2px solid red"}></Box>
@@ -227,11 +275,13 @@ const Signup = () => {
                 width={"90%"}
                 ml="11%"
                 mt="2"
-                onClick={handleSubmit}
+                onClick={handleSignup}
               >
                 Register
               </Button>
             </Box>
+
+            
 
             <Box className="login-already">
               Already have an account?{" "}
@@ -240,6 +290,49 @@ const Signup = () => {
               </span>
             </Box>
           </form>
+
+          {/* <Flex alignItems="center" gap="2" w={'50%'}  ml={'31%'} mt='1rem'>
+                    <Divider orientation="horizontal" w={"48%"}></Divider>
+                    <Box>
+                      <Text fontSize={"20px"}>OR</Text>
+                    </Box>
+                    <Divider orientation="horizontal" w={"48%"}></Divider>
+                  </Flex>
+            <Box ml={'10%'}>
+              
+                  <Flex
+                    justifyContent={"center"}
+                    margin={"auto"}
+                    border={"1px solid gray"}
+                    h={"20%"}
+                    mt='1rem'
+                    w='50%'
+                  >
+                    <Box w={"80px"} h={"50px"}>
+                      <Image
+                        h={"28px"}
+                        m="5px"
+                        ml={"10px"}
+                        mt={"8px"}
+                        src={
+                          "https://app.clockify.me/assets/ui-icons/icon-google.svg"
+                        }
+                      ></Image>
+                    </Box>
+                    <Spacer />
+                    <Text
+                      textAlign={"center"}
+                      mt={"8px"}
+                      w={"400px"}
+                      fontSize={"19px"}
+                      color={"#666"}
+                      onClick={handleGoogleLogin}
+                    >
+                      Continue with google
+                    </Text>
+                  </Flex>
+                  
+            </Box> */}
         </Box>
       </Box>
     </Box>
