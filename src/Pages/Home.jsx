@@ -5,7 +5,7 @@ import Navbar from '../Components/Navbar/Navbar'
 const Home = () => {
   return (
     <Box>
-      <Box boxShadow={'base'}>
+      <Box boxShadow={'base'} h='55px'>
         <Navbar/>
       </Box>
     </Box>

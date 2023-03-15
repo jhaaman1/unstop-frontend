@@ -19,18 +19,12 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PasswordInput from "../Components/Password/PasswordInput";
-import { userSignup } from "../Redux/Auth/Action";
-// import { userSignup } from "../";
 import "./Signup.css";
 
 const Signup = () => {
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  // const isAuth = useSelector((store) => store.AuthReducer.isAuth);
-  // const toast = useToast();
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
   const [username, setUserName] = useState("");
@@ -41,51 +35,16 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(false);
-
-  // const handleSubmit = (e) => {
-
-  //   e.preventDefault();
-  //   if(firstname,lastname,username,gender,email,phone,organisation,password,confirmPassword){
-  //     dispatch(
-  //       userSignup({
-  //         firstname: firstname,
-  //         lastname: lastname,
-  //         username: username,
-  //         gender: gender,
-  //         email: email,
-  //         phone: phone,
-  //         organisation: organisation,
-  //         password: password,
-  //         confirmPassword: confirmPassword
-  //       })
-  //     )
-  //     .then(() => {
-  //       toast({
-  //         title: "Authentication successful!",
-  //         status: "success",
-  //         isClosable: true,
-  //       });
-  //     })
-  //     .catch(() => {
-  //       toast({
-  //         title: "Something went wrong",
-  //         status: "error",
-  //         isClosable: true,
-  //       });
-  //     });
-  //   }
-  // }
-
   
   // isAuth ? (<Navigate to='/user'/>) :
 
-  const handleSignup = () => {
+   const handleSignup = () => {
     const payload = {
       email: email,
       password: password,
     };
     axios
-      .post(`http://localhost:8080/user/signup`, payload)
+      .post(`http://localhost:8080/register/add-user`, payload)
       .then((r) => {
         console.log(r.data);
         navigate("/login");
@@ -94,28 +53,28 @@ const Signup = () => {
         (e) => setError(true)
         // console.log(e)
       );
+   };
+  const handleGoogleLogin = () => {
+    axios
+      .get("http://localhost:8080/auth/google", {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+          "Referrer-Policy": "no-referrer, strict-origin-when-cross-origin",
+        },
+      })
+      .then((r) => {
+        console.log(r);
+        if (r.data.token) {
+          localStorage.setItem("login_token", r.data.token);
+          localStorage.setItem("email", r.data.email);
+          navigate("/clockify/");
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
-  // const handleGoogleLogin = async () => {
-  //   await axios
-  //     .get("http://localhost:8080/auth/google", {
-  //       headers: {
-  //         "Access-Control-Allow-Origin": "*",
-  //         "Content-Type": "application/json",
-  //         "Referrer-Policy": "no-referrer, strict-origin-when-cross-origin",
-  //       },
-  //     })
-  //     .then((r) => {
-  //       console.log(r);
-  //       if (r.data.token) {
-  //         localStorage.setItem("login_token", r.data.token);
-  //         localStorage.setItem("email", r.data.email);
-  //         navigate("/clockify/");
-  //       }
-  //     })
-  //     .catch((e) => {
-  //       console.log(e);
-  //     });
-  // };
 
   return (
     <Box display={"flex"} gap="10%" width="100%" h={"100vh"}>

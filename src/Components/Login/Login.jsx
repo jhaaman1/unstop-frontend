@@ -24,25 +24,25 @@ const Login = () => {
   const [error, setError] = useState("");
 
   const handleLogin = () => {
-    // const payload = {
-    //   email: email,
-    //   password: password,
-    // };
-    // axios
-    //   .post("http://localhost:8080/user/login", payload)
-    //   .then((r) => {
-    //     console.log(r.data);
-    //     if (r.data.token) {
-    //       localStorage.setItem("login_token", r.data.token);
-    //       localStorage.setItem("email", r.data.email);
+    const payload = {
+      email: email,
+      password: password,
+    };
+    axios
+      .post("http://localhost:8080/login/user", payload)
+      .then((r) => {
+        console.log(r.data);
+        if (r.data.token) {
+          localStorage.setItem("login_token", r.data.token);
+          localStorage.setItem("email", r.data.email);
 
-    //       navigate("/");
-    //     }
-    //   })
-    //   .catch((e) => {
-    //     console.log(e);
-    //     setError(true);
-    //   });
+          navigate("/");
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+        setError(true);
+      });
     console.log("ha ji")
   };
 
