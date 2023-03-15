@@ -28,36 +28,39 @@ const Login = () => {
       email: email,
       password: password,
     };
-  
+
     try {
       const response = await axios.post(
         "http://localhost:8080/login/user",
         payload
       );
-  
+
       if (response.data.token) {
         localStorage.setItem("login_token", response.data.token);
         localStorage.setItem("email", response.data.email);
-  
+
         navigate("/");
       } else {
         setError("Invalid email or password");
       }
     } catch (error) {
-      console.log(error);
-      setError("Something went wrong");
+      if (error.response && error.response.status === 401) {
+        setError("Invalid email or password");
+      } else {
+        setError("Something went wrong");
+      }
     }
-  };  
+  };
 
   const handleGoogleLogin = () => {
-    console.log("hi")
-    axios.get(`http://localhost:8080/auth/google`)
-    .then((r)=>{
-      console.log(r)
-    })
-    .catch((e)=>{
-      console.log(e)
-    })
+    axios
+      .get(`http://localhost:8080/auth/google`)
+      .then((r) => {
+        console.log(r);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
   return (
     <Box className="logincontainer">
@@ -67,7 +70,6 @@ const Login = () => {
 
       <Box className="inputbox">
         <FormControl isRequired>
-          
           <Flex
             justifyContent={"center"}
             margin={"auto"}
@@ -75,13 +77,13 @@ const Login = () => {
             h={"50px"}
             cursor="pointer"
             w={"60%"}
-            mt={'1rem'}
+            mt={"1rem"}
             onClick={handleGoogleLogin}
           >
-            <Box  h={"50px"}>
+            <Box h={"50px"}>
               <Image
                 h={"28px"}
-                m='auto'
+                m="auto"
                 // m="5px"
                 // ml={"10px"}
                 mt={"2"}
@@ -101,14 +103,13 @@ const Login = () => {
             </Text>
           </Flex>
 
-          <Flex alignItems="center" gap="2" mt={'1rem'}>
+          <Flex alignItems="center" gap="2" mt={"1rem"}>
             <Divider orientation="horizontal" w={"48%"}></Divider>
             <Box>
               <Text fontSize={"20px"}>OR</Text>
             </Box>
             <Divider orientation="horizontal" w={"48%"}></Divider>
           </Flex>
-
 
           <Box>
             <FormLabel
@@ -144,7 +145,11 @@ const Login = () => {
             />
           </Box>
 
-          <Button variant={"outline"} className="loginbutton" onClick={handleLogin}>
+          <Button
+            variant={"outline"}
+            className="loginbutton"
+            onClick={handleLogin}
+          >
             Login
           </Button>
 

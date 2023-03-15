@@ -60,3 +60,11 @@ body {
     text-align: center;
 
 }
+
+@media (min-width: 851px) and (max-width : 1200px){
+    .heading-signup{
+        /* text-align: center; */
+        border: 2px solid red;
+        margin: auto;
+    }
+}

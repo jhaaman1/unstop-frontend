@@ -95,20 +95,20 @@ const Signup = () => {
   
   return (
     <Box display={"flex"} gap="10%" width="100%" h={"100vh"}>
-      <Hide breakpoint="(max-width: 500px)">
-        <Box width="45%" border={"2px solid red"}></Box>
+      <Hide breakpoint="(max-width: 997px)" alignItems='center'>
+        <Box width={['100%',"60%","100%","50%"]} border={"2px solid red"}></Box>
       </Hide>
-      <Box width={["100%", "45%"]} padding={"1rem"}>
+      <Box width={["100%", "80%","70%","50%"]} m={['auto','auto','auto','auto']} border='1px solid blue'>
         <Box color="blue" textAlign={"center"}>
           <Heading size={"1rem"} className="heading-signup">
             Welcome!
           </Heading>
         </Box>
 
-        <Box>
+        <Box mt={[2,2,4,4]}>
           <form>
-            <Box display={["block", "flex", "flex"]}>
-              <Box m="auto">
+            <Box display={["block", "block", "flex", "flex"]}  border={'2px solid teal'} justifyContent={['none',"none","space-between","space-between"]}>
+              <Box m={['none','none','none','auto']} border={'2px solid gray'}>
                 <FormLabel className="firstname-label">First Name</FormLabel>
                 <Input
                   type="text"
@@ -131,8 +131,8 @@ const Signup = () => {
               </Box>
             </Box>
 
-            <Box display={["block", "flex", "flex"]} alignItems="center" mt={4}>
-              <Box m={"auto"}>
+            <Box display={["block", "block", "flex", "flex"]} justifyContent={['none',"none","space-between","space-between"]} alignItems="center" mt={[2,2,4,4]}>
+              <Box >
                 <FormLabel className="firstname-label">User Name</FormLabel>
                 <Input
                   type="text"
@@ -143,7 +143,7 @@ const Signup = () => {
                   onChange={(e) => setUserName(e.target.value)}
                 />
               </Box>
-              <Box>
+              <Box border={'2px solid red'} >
                 <FormLabel className="firstname-label">Gender</FormLabel>
                 <Select
                   placeholder="Gender"
@@ -151,6 +151,8 @@ const Signup = () => {
                   required
                   value={gender}
                   onChange={(e) => setGender(e.target.value)}
+                  w={['60%','60%','40%','40%']}
+                  border={'2px solid green'}
                 >
                   <option value="male">Male</option>
                   <option value="female">Female</option>
@@ -161,8 +163,8 @@ const Signup = () => {
                 </Select>
               </Box>
             </Box>
-            <Box mt={4} display={["block", "flex", "flex"]}>
-              <Box m="auto">
+            <Box mt={4} display={["block", "block", "flex", "flex"]} justifyContent={['none',"none","space-between","space-between"]}>
+              <Box>
                 <FormLabel className="firstname-label">Email</FormLabel>
                 <Input
                   type="text"
@@ -174,7 +176,7 @@ const Signup = () => {
               </Box>
               <Box className="phone-numbr">
                 <FormLabel className="firstname-label">Phone</FormLabel>
-                <Box>
+                <Box border={'2px solid green'} w={['390px','430px','50%',"30%"]}>
                   <InputGroup>
                     <InputLeftAddon children="+91" />
                     <Input
@@ -189,7 +191,7 @@ const Signup = () => {
               </Box>
             </Box>
 
-            <Box m="auto" pl={"11%"} mt={4}>
+            <Box m="auto" pl={["none","none","11%","11%"]} mt={4} >
               <FormLabel
                 // mt="4"
                 className="firstname-label"
@@ -206,7 +208,7 @@ const Signup = () => {
                 onChange={(e) => setOrganisation(e.target.value)}
               />
             </Box>
-            <Box display={["block", "flex", "flex"]} mt={4}>
+            <Box display={["block", "block", "flex", "flex"]} mt={4}>
               <Box m="auto">
                 <FormLabel className="firstname-label">Password</FormLabel>
                 <PasswordInput
@@ -215,7 +217,7 @@ const Signup = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </Box>
-              <Box>
+              <Box mt={[4,4,'none','none']}>
                 <FormLabel className="firstname-label">
                   Confirm Password
                 </FormLabel>
@@ -233,7 +235,7 @@ const Signup = () => {
                 colorScheme="green"
                 defaultChecked
                 mt={2}
-                pl={"11%"}
+                pl={['1','1',"11%","11%"]}
                 className="signup-checkbox"
                 required
               >
@@ -248,8 +250,8 @@ const Signup = () => {
                 variant={"outline"}
                 color="white"
                 bg="#1c4980"
-                width={"90%"}
-                ml="11%"
+                width={['100%','100%',"90%","90%"]}
+                ml={['none','none',"11%","11%"]}
                 mt="2"
                 onClick={handleSignup}
               >
