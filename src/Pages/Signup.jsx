@@ -38,44 +38,61 @@ const Signup = () => {
   
   // isAuth ? (<Navigate to='/user'/>) :
 
-   const handleSignup = () => {
+  //  const handleSignup = () => {
+  //   const payload = {
+  //     firstname: firstname,
+  //     lastname: lastname,
+  //     username: username,
+  //     gender: gender,
+  //     email: email,
+  //     password: password,
+  //     confirmPassword: confirmPassword,
+  //     phone: phone,
+  //     organisation: organisation
+      
+  //   };
+  //   axios
+  //     .post(`http://localhost:8080/register/add-user`, payload)
+  //     .then((r) => {
+  //       console.log(r.data);
+  //       navigate("/login");
+  //     })
+  //     .catch(
+  //       (e) => setError(true)
+  //       // console.log(e)
+  //     );
+  //  };
+ 
+  const handleSignup = async () => {
+    if (password !== confirmPassword) {
+      setError(true);
+      return;
+    }
     const payload = {
+      firstname: firstname,
+      lastname: lastname,
+      username: username,
+      gender: gender,
       email: email,
       password: password,
+      confirm_password: confirmPassword,
+      phone_number: phone,
+      organisation: organisation
     };
-    axios
-      .post(`http://localhost:8080/register/add-user`, payload)
-      .then((r) => {
-        console.log(r.data);
-        navigate("/login");
-      })
-      .catch(
-        (e) => setError(true)
-        // console.log(e)
+  
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/register/add-user",
+        payload
       );
-   };
-  const handleGoogleLogin = () => {
-    axios
-      .get("http://localhost:8080/auth/google", {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
-          "Referrer-Policy": "no-referrer, strict-origin-when-cross-origin",
-        },
-      })
-      .then((r) => {
-        console.log(r);
-        if (r.data.token) {
-          localStorage.setItem("login_token", r.data.token);
-          localStorage.setItem("email", r.data.email);
-          navigate("/clockify/");
-        }
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+      console.log(response.data);
+      navigate("/login");
+    } catch (error) {
+      console.log(error);
+      setError(true);
+    }
   };
-
+  
   return (
     <Box display={"flex"} gap="10%" width="100%" h={"100vh"}>
       <Hide breakpoint="(max-width: 500px)">

@@ -23,28 +23,31 @@ const Login = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     const payload = {
       email: email,
       password: password,
     };
-    axios
-      .post("http://localhost:8080/login/user", payload)
-      .then((r) => {
-        console.log(r.data);
-        if (r.data.token) {
-          localStorage.setItem("login_token", r.data.token);
-          localStorage.setItem("email", r.data.email);
-
-          navigate("/");
-        }
-      })
-      .catch((e) => {
-        console.log(e);
-        setError(true);
-      });
-    console.log("ha ji")
-  };
+  
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/login/user",
+        payload
+      );
+  
+      if (response.data.token) {
+        localStorage.setItem("login_token", response.data.token);
+        localStorage.setItem("email", response.data.email);
+  
+        navigate("/");
+      } else {
+        setError("Invalid email or password");
+      }
+    } catch (error) {
+      console.log(error);
+      setError("Something went wrong");
+    }
+  };  
 
   const handleGoogleLogin = () => {
     console.log("hi")
