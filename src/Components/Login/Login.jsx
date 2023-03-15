@@ -62,9 +62,10 @@ const Login = () => {
         console.log(e);
       });
   };
+
   return (
-    <Box className="logincontainer">
-      <Heading fontSize={{ base: "2xl", md: "4xl" }} className="heading-login">
+    <Box className="logincontainer" border={'2px solid red'}>
+      <Heading fontSize={{ base: "2xl", md: "4xl" }} border={'3px solid green'} className="heading-login">
         Welcome Back
       </Heading>
 
@@ -76,7 +77,7 @@ const Login = () => {
             border={"1px solid gray"}
             h={"50px"}
             cursor="pointer"
-            w={"60%"}
+            w={['100%']}
             mt={"1rem"}
             onClick={handleGoogleLogin}
           >
@@ -111,7 +112,7 @@ const Login = () => {
             <Divider orientation="horizontal" w={"48%"}></Divider>
           </Flex>
 
-          <Box>
+          <Box w={['100%']} border='3px solid black'>
             <FormLabel
               fontSize={["30%", "50%", "80%"]}
               mt="4"

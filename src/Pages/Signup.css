@@ -1,8 +1,8 @@
 .signupformbox{
-    width: 40%;
+    /* width: 40%; */
     margin: auto;
-    margin-top: 3rem;
-    /* border: 2px solid; */
+    margin-top: 1rem;
+    /* border: 2px solid greenyellow; */
 }
 
 .heading-signup{
@@ -36,11 +36,6 @@ body {
 
 .select-sign{
     height: 40px !important;
-    width: 252px !important;
-}
-
-.phone-numbr{
-    width: 39% !important;
 }
 
 
