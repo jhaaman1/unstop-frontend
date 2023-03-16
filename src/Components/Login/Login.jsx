@@ -64,12 +64,13 @@ const Login = () => {
   };
 
   return (
-    <Box className="logincontainer" border={'2px solid red'}>
-      <Heading fontSize={{ base: "2xl", md: "4xl" }} border={'3px solid green'} className="heading-login">
+    
+    <Box className="logincontainer">
+      <Text className="heading-login">
         Welcome Back
-      </Heading>
+      </Text>
 
-      <Box className="inputbox">
+      <Box className="inputbox" w={['100%',"60%","50%","30%"]}>
         <FormControl isRequired>
           <Flex
             justifyContent={"center"}
@@ -77,7 +78,7 @@ const Login = () => {
             border={"1px solid gray"}
             h={"50px"}
             cursor="pointer"
-            w={['100%']}
+            // w={['100%']}
             mt={"1rem"}
             onClick={handleGoogleLogin}
           >
@@ -95,8 +96,7 @@ const Login = () => {
 
             <Text
               textAlign={"center"}
-              mt={"8px"}
-              // w={"20%"}
+              mt={"2"}
               fontSize={"19px"}
               color={"#666"}
             >
@@ -105,25 +105,22 @@ const Login = () => {
           </Flex>
 
           <Flex alignItems="center" gap="2" mt={"1rem"}>
-            <Divider orientation="horizontal" w={"48%"}></Divider>
+            <Divider orientation="horizontal" w={"48%"} border='0.1px solid'></Divider>
             <Box>
               <Text fontSize={"20px"}>OR</Text>
             </Box>
-            <Divider orientation="horizontal" w={"48%"}></Divider>
+            <Divider orientation="horizontal" w={"48%"} border='0.1px solid'></Divider>
           </Flex>
 
-          <Box w={['100%']} border='3px solid black'>
+          <Box w={['100%','100%','100%','100%']} mt={[2,2,2,4]}>
             <FormLabel
-              fontSize={["30%", "50%", "80%"]}
               mt="4"
-              ml="2"
               className="email-label"
             >
               Email Id
             </FormLabel>
             <Input
               type="email"
-              fontSize={["30%", "50%", "80%"]}
               placeholder="Email"
               id="email"
               value={email}
