@@ -44,17 +44,15 @@ const Login = () => {
         setError("Invalid email or password");
       }
     } catch (error) {
-      if (error.response && error.response.status === 401) {
-        setError("Invalid email or password");
-      } else {
-        setError("Something went wrong");
-      }
+      setError("Something went wrong");
     }
   };
 
   const handleGoogleLogin = () => {
     axios
-      .get(`http://localhost:8080/auth/google`)
+      .get(`http://localhost:8080/auth/google`, {
+        withCredentials: true,
+      })
       .then((r) => {
         console.log(r);
       })
@@ -62,6 +60,7 @@ const Login = () => {
         console.log(e);
       });
   };
+  
 
   return (
     
@@ -71,7 +70,7 @@ const Login = () => {
       </Text>
 
       <Box className="inputbox" w={['100%',"60%","50%","30%"]}>
-        <FormControl isRequired>
+        <form>
           <Flex
             justifyContent={"center"}
             margin={"auto"}
@@ -157,7 +156,7 @@ const Login = () => {
               <Link to="/signup">Sign Up</Link>
             </span>
           </Box>
-        </FormControl>
+        </form>
       </Box>
     </Box>
   );

@@ -35,8 +35,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(false);
-  
-  // isAuth ? (<Navigate to='/user'/>) :
+    
 
   //  const handleSignup = () => {
   //   const payload = {
@@ -64,10 +63,10 @@ const Signup = () => {
   //  };
  
   const handleSignup = async () => {
-    if (password !== confirmPassword) {
-      setError(true);
-      return;
-    }
+    // if (password !== confirmPassword) {
+    //   setError(true);
+    //   return;
+    // }
     const payload = {
       firstname: firstname,
       lastname: lastname,
@@ -100,9 +99,9 @@ const Signup = () => {
       </Hide>
       <Box width={["100%", "80%","70%","45%"]} m={['auto','auto','auto','auto']}>
         <Box color="blue" textAlign={"center"}>
-          <Heading size={"1rem"} className="heading-signup">
+          <Text size={"1rem"} className="heading-signup">
             Welcome!
-          </Heading>
+          </Text>
         </Box>
 
         <Box mt={[2,2,4,4]}>

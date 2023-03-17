@@ -1,3 +1,4 @@
+import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 import { Button, Input, InputGroup, InputRightElement } from '@chakra-ui/react'
 import React from 'react'
 
@@ -15,7 +16,7 @@ function PasswordInput() {
         />
         <InputRightElement width='4.5rem'>
           <Button h='1.75rem' size='sm' onClick={handleClick}>
-            {show ? 'Hide' : 'Show'}
+            {show ? <ViewOffIcon/> : <ViewIcon/>}
           </Button>
         </InputRightElement>
       </InputGroup>
