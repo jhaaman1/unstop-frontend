@@ -166,7 +166,7 @@ const Signup = () => {
               <Box w={['100%','100%','45%','45%']} >
                 <FormLabel className="firstname-label">Email</FormLabel>
                 <Input
-                  type="text"
+                  type="email"
                   placeholder="Email"
                   required
                   value={email}

@@ -10,6 +10,7 @@ import {
   Input,
   Spacer,
   Text,
+  useToast
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useState } from "react";
@@ -21,9 +22,13 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const toast = useToast();
 
   const handleLogin = async () => {
+    setIsLoading(true);
+
     const payload = {
       email: email,
       password: password,
@@ -38,13 +43,31 @@ const Login = () => {
       if (response.data.token) {
         localStorage.setItem("login_token", response.data.token);
         localStorage.setItem("email", response.data.email);
+        toast({
+          title: "Login successful",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+        setIsLoading(false);
+        setEmail("");
+        setPassword("");
+        // Redirect to home page after successful login
 
         navigate("/");
       } else {
         setError("Invalid email or password");
+        setIsLoading(false);
+        toast({
+          title: "Invalid email or password",
+          status: "failed",
+          duration: 3000,
+          isClosable: true,
+        });
       }
     } catch (error) {
       setError("Something went wrong");
+      setIsLoading(false);
     }
   };
 
