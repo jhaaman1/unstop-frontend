@@ -1,4 +1,4 @@
-import { BellIcon, DragHandleIcon, HamburgerIcon } from '@chakra-ui/icons';
+import { BellIcon, DragHandleIcon, HamburgerIcon } from "@chakra-ui/icons";
 import {
   Drawer,
   DrawerBody,
@@ -13,22 +13,24 @@ import {
   Radio,
   Button,
   Input,
-} from '@chakra-ui/react'
-import React from 'react';
-
+  Icon,
+} from "@chakra-ui/react";
+import React from "react";
+import { BsFillPersonFill } from "react-icons/bs";
 
 function NotificationDrawer() {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const btnRef = React.useRef()
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = React.useRef();
 
   return (
     <>
-      <Button ref={btnRef} color='#1c4980' variant={'ghost'} onClick={onOpen}>
-        <BellIcon w='30px' h='30px'/>
+      <Button ref={btnRef} color="#1c4980" variant={"ghost"} onClick={onOpen}>
+        {/* <BellIcon w='30px' h='30px'/> */}
+        <Icon as={BsFillPersonFill} w="30px" h="30px" />
       </Button>
       <Drawer
         isOpen={isOpen}
-        placement='right'
+        placement="right"
         onClose={onClose}
         finalFocusRef={btnRef}
       >
@@ -36,14 +38,21 @@ function NotificationDrawer() {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>Menu</DrawerHeader>
-      <hr />
+          <hr />
           <DrawerBody>
-            <Button variant={'solid'} w='100%' bg='#3e6493' color={'white'} >Host Events</Button>
+            
           </DrawerBody>
         </DrawerContent>
+
+        <hr />
+        <DrawerFooter>
+            <Button type='submit' form='my-form'>
+              Save
+            </Button>
+          </DrawerFooter>
       </Drawer>
     </>
-  )
-  }
+  );
+}
 
-  export default NotificationDrawer;
+export default NotificationDrawer;

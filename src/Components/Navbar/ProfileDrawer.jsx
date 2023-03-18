@@ -17,7 +17,7 @@ import {
 import React from 'react';
 
 
-function DrawerMenu() {
+function ProfileDrawer() {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = React.useRef()
 
@@ -47,4 +47,4 @@ function DrawerMenu() {
   )
   }
 
-  export default DrawerMenu;
+  export default ProfileDrawer;

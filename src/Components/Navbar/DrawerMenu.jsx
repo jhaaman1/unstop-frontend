@@ -13,8 +13,10 @@ import {
   Radio,
   Button,
   Input,
+  Icon
 } from '@chakra-ui/react'
 import React from 'react';
+import { RxHamburgerMenu } from "react-icons/rx";
 
 
 function DrawerMenu() {
@@ -25,7 +27,8 @@ function DrawerMenu() {
     <>
       <Button ref={btnRef} color='#1c4980' variant={'ghost'} onClick={onOpen}>
         {/* <HamburgerIcon/> */}
-        <DragHandleIcon/>
+        {/* <DragHandleIcon/> */}
+        <Icon as={RxHamburgerMenu}/>
       </Button>
       <Drawer
         isOpen={isOpen}

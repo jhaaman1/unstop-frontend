@@ -10,7 +10,7 @@ import {
   Input,
   Spacer,
   Text,
-  useToast
+  useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useState } from "react";
@@ -25,7 +25,7 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const toast = useToast();
-
+  const [isloggedin, setIsLoogedIn] = useState(false);
   const handleLogin = async () => {
     setIsLoading(true);
 
@@ -43,6 +43,7 @@ const Login = () => {
       if (response.data.token) {
         localStorage.setItem("login_token", response.data.token);
         localStorage.setItem("email", response.data.email);
+        setIsLoogedIn(true);
         toast({
           title: "Login successful",
           status: "success",
@@ -83,16 +84,12 @@ const Login = () => {
         console.log(e);
       });
   };
-  
 
   return (
-    
     <Box className="logincontainer">
-      <Text className="heading-login">
-        Welcome Back
-      </Text>
+      <Text className="heading-login">Welcome Back</Text>
 
-      <Box className="inputbox" w={['100%',"60%","50%","30%"]}>
+      <Box className="inputbox" w={["100%", "60%", "50%", "30%"]}>
         <form>
           <Flex
             justifyContent={"center"}
@@ -127,18 +124,23 @@ const Login = () => {
           </Flex>
 
           <Flex alignItems="center" gap="2" mt={"1rem"}>
-            <Divider orientation="horizontal" w={"48%"} border='0.1px solid'></Divider>
+            <Divider
+              orientation="horizontal"
+              w={"48%"}
+              border="0.1px solid"
+            ></Divider>
             <Box>
               <Text fontSize={"20px"}>OR</Text>
             </Box>
-            <Divider orientation="horizontal" w={"48%"} border='0.1px solid'></Divider>
+            <Divider
+              orientation="horizontal"
+              w={"48%"}
+              border="0.1px solid"
+            ></Divider>
           </Flex>
 
-          <Box w={['100%','100%','100%','100%']} mt={[2,2,2,4]}>
-            <FormLabel
-              mt="4"
-              className="email-label"
-            >
+          <Box w={["100%", "100%", "100%", "100%"]} mt={[2, 2, 2, 4]}>
+            <FormLabel mt="4" className="email-label">
               Email Id
             </FormLabel>
             <Input
