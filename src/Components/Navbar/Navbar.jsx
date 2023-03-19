@@ -9,6 +9,8 @@ import {
   Icon,
   useDisclosure,
   Button,
+  Avatar,
+  Text,
 } from "@chakra-ui/react";
 import {
   Drawer,
@@ -112,7 +114,7 @@ const Navbar = () => {
           {loggedIn ? (
             <>
               <Box className="profilebtn">
-                <Button onClick={onOpen}>Open</Button>
+                <Button onClick={onOpen} variant='link' mb={4}><Avatar name='Dan Abrahmov' src='https://bit.ly/dan-abramov' /></Button>
                 <Drawer isOpen={isOpen} onClose={onClose}>
                   <DrawerOverlay />
                   <DrawerContent>
@@ -120,19 +122,13 @@ const Navbar = () => {
                     <DrawerHeader>Profile</DrawerHeader>
                     <hr />
                     <DrawerBody>
-                      <form
-                        id="my-form"
-                        onSubmit={(e) => {
-                          e.preventDefault();
-                          console.log("submitted");
-                        }}
-                      >
-                        <Input name="nickname" placeholder="Type here..." />
-                      </form>
+                      <Box boxShadow='base' h={'30%'} border='2px solid red'></Box>
+                      <Box><Text className="users" >For Users</Text></Box>
+
                     </DrawerBody>
 
                     <DrawerFooter>
-                      <Button type="submit" onClick={handleLogout}>
+                      <Button className="logout" type="submit" w={'100%'} variant='outline' colorScheme={'#1c4980'}  onClick={handleLogout}>
                         Logout
                       </Button>
                     </DrawerFooter>

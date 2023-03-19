@@ -1,0 +1,38 @@
+
+
+.head{
+    color: #1c4980;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 60px;
+    margin-bottom: 44px;
+    position: relative;
+}
+
+.head span{
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    /* padding-bottom: 5rem; */
+}
+
+
+
+.p-text{
+    color: #1c4980;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 140%;
+    margin: 0;
+
+}
+
+.grid-item{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+}
+
+.grid-item:hover{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    cursor: pointer;
+}

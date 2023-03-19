@@ -123,3 +123,17 @@ strong{
     padding: 0 15px;
     margin-left: 15px; 
 }
+
+.logout:hover{
+    background-color: #1C4980;
+    color: white;
+}
+
+.users{
+    background: rgba(244,246,249,.6);
+    color: #3e6493;
+    font-weight: 600;
+    padding: 7px 24px;
+    font-size: 14px;
+
+}
