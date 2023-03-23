@@ -19,9 +19,6 @@ const Home = () => {
 
   return (
     <Box>
-      <Box boxShadow={"base"} >
-        <Navbar />
-      </Box>
 
       <Box w={["100%", "100%", "100%", "78%"]} m="auto">
         <Box

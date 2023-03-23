@@ -42,7 +42,6 @@
 .three-box {
   /* width: 300px; */
   height: 300px;
-  border: 2px solid gold;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 5px;
 }
@@ -72,9 +71,6 @@
 }
 
 .four-box {
-  /* width: 250px; */
-  /* height: 150px; */
-  border: 5px solid gold;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 5px;
   margin: auto;
