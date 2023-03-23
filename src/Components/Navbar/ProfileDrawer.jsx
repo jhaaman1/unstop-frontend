@@ -40,6 +40,8 @@ function ProfileDrawer() {
       <hr />
           <DrawerBody>
             <Button variant={'solid'} w='100%' bg='#3e6493' color={'white'} >Host Events</Button>
+
+            
           </DrawerBody>
         </DrawerContent>
       </Drawer>

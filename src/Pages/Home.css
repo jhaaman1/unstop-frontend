@@ -1,3 +1,10 @@
+.nav-box{
+    background: #ffff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
 .head {
   color: #1c4980;
   font-weight: 700;
@@ -87,7 +94,7 @@
 }
 
 .head-feature {
-  margin-bottom: 24px;
+  margin-bottom: 4px;
   font-weight: 600;
   font-size: 28px;
   line-height: 140%;
@@ -100,7 +107,7 @@
   font-size: 14px;
   line-height: 140%;
   display: block;
-  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .mobile-nav {

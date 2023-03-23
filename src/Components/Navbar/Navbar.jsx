@@ -2,9 +2,6 @@ import {
   Box,
   Flex,
   Image,
-  Input,
-  InputGroup,
-  InputLeftElement,
   Spacer,
   Icon,
   useDisclosure,
@@ -13,6 +10,7 @@ import {
   Text,
   Hide,
   Show,
+  HStack,
 } from "@chakra-ui/react";
 import {
   Drawer,
@@ -28,8 +26,7 @@ import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import DrawerMenu from "./DrawerMenu";
 import { Link, useNavigate } from "react-router-dom";
-import { AiOutlineUser } from "react-icons/ai";
-import NotificationDrawer from "./NotificationDrawer";
+import { IoBagHandleOutline } from "react-icons/io5";
 
 const Navbar = () => {
   const [loggedIn, setLoggedIn] = useState(false); // Initialize the isLoggedIn state to false
@@ -51,18 +48,23 @@ const Navbar = () => {
   };
 
   return (
-    <Box className="nav" w={['100%','100%','100%','78%']} h={['100%','100%','100%','40%']}>
-      <Flex gap={4} justifyContent={['space-between','space-between','none','none']}>
+    <Box
+      className="nav"
+      w={["100%", "100%", "100%", "78%"]}
+      h={["100%", "100%", "100%", "40%"]}
+    >
+      <Flex
+        gap={4}
+        justifyContent={["space-between", "space-between", "none", "none"]}
+      >
         <Box className="logo" mt={2}>
-  
-            <Image
+          <Image
             className="imagelogo"
             src="https://d8it4huxumps7.cloudfront.net/uploads/images/unstop/svg/unstop-logo.svg"
             alt=""
             w={"82px"}
             h={"32px"}
-            />
-       
+          />
         </Box>
         {/* <Box mt={2}>
           <InputGroup>
@@ -111,9 +113,13 @@ const Navbar = () => {
           </Box>
         </Hide>
 
-        <Hide breakpoint='(min-width: 995px)'>
-        <Box mt={[2,2,2,2]} className='mobile-nav' w={['100%','100%','100%']}>
-            <Flex justifyContent={['none','space-between']}>
+        <Hide breakpoint="(min-width: 995px)">
+          <Box
+            mt={[2, 2, 2, 2]}
+            className="mobile-nav"
+            w={["100%", "100%", "100%"]}
+          >
+            <Flex justifyContent={["none", "space-between"]}>
               <Link to="/learn">
                 <Box className="single-menu-item">
                   {" "}
@@ -151,7 +157,7 @@ const Navbar = () => {
         <Box mt={"3"} display="flex">
           {loggedIn ? (
             <>
-              <Box className="profilebtn">
+              <Box className="profilebtn" h="100%">
                 <Button onClick={onOpen} variant="link" mb={4}>
                   <Avatar
                     name="Dan Abrahmov"
@@ -172,7 +178,100 @@ const Navbar = () => {
                       ></Box>
                       <Box>
                         <Text className="users">For Users</Text>
+                        <HStack
+                          className="users-type"
+                          spacing={"13px"}
+                          h={"40px"}
+                        >
+                          <Box>
+                            <Icon as={IoBagHandleOutline} />
+                          </Box>
+                          <Box>For Employers</Box>
+                        </HStack>
+                        <HStack
+                          className="users-type"
+                          spacing={"13px"}
+                          h={"40px"}
+                        >
+                          <Box>
+                            <Icon as={IoBagHandleOutline} />
+                          </Box>
+                          <Box>For Employers</Box>
+                        </HStack>
+                        <HStack
+                          className="users-type"
+                          spacing={"13px"}
+                          h={"40px"}
+                        >
+                          <Box>
+                            <Icon as={IoBagHandleOutline} />
+                          </Box>
+                          <Box>For Employers</Box>
+                        </HStack>
+                        <HStack
+                          className="users-type"
+                          spacing={"13px"}
+                          h={"40px"}
+                        >
+                          <Box>
+                            <Icon as={IoBagHandleOutline} />
+                          </Box>
+                          <Box>For Employers</Box>
+                        </HStack>
+                        <HStack
+                          className="users-type"
+                          spacing={"13px"}
+                          h={"40px"}
+                        >
+                          <Box>
+                            <Icon as={IoBagHandleOutline} />
+                          </Box>
+                          <Box>For Employers</Box>
+                        </HStack>
+                        <HStack
+                          className="users-type"
+                          spacing={"13px"}
+                          h={"40px"}
+                        >
+                          <Box>
+                            <Icon as={IoBagHandleOutline} />
+                          </Box>
+                          <Box>For Employers</Box>
+                        </HStack>
+                        <HStack
+                          className="users-type"
+                          spacing={"13px"}
+                          h={"40px"}
+                        >
+                          <Box>
+                            <Icon as={IoBagHandleOutline} />
+                          </Box>
+                          <Box>For Employers</Box>
+                        </HStack>
+                        <HStack
+                          className="users-type"
+                          spacing={"13px"}
+                          h={"40px"}
+                        >
+                          <Box>
+                            <Icon as={IoBagHandleOutline} />
+                          </Box>
+                          <Box>For Employers</Box>
+                        </HStack>
                       </Box>
+                      <Box>
+                        <Text className="users">For Organiser</Text>
+                        <HStack
+                          className="users-type"
+                          spacing={"13px"}
+                          h={"40px"}
+                        >
+                          <Box>
+                            <Icon as={IoBagHandleOutline} />
+                          </Box>
+                          <Box>For Employers</Box>
+                        </HStack>
+                        </Box>
                     </DrawerBody>
 
                     <DrawerFooter>
@@ -206,9 +305,8 @@ const Navbar = () => {
           )}
         </Box>
 
-        <Box border={'4px solid green'} mt={[1,1,1,1]}>
-          <DrawerMenu />
-          {/* <NotificationDrawer/> */}
+        <Box border={"1px solid"} h="10%" mt={[1, 1, 1, 3]}>
+          <DrawerMenu h="100%" />
         </Box>
       </Flex>
     </Box>

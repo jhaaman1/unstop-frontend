@@ -1,0 +1,10 @@
+.events-type:hover{
+    background-color: #53677d;
+    color: white;
+    cursor: pointer;
+    /* margin-top: 2rem; */
+}
+
+.events-type{
+    color: #5e7792;
+}
