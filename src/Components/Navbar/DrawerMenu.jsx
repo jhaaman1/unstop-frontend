@@ -46,81 +46,34 @@ function DrawerMenu() {
               <Box >
                 <Icon as={IoBagHandleOutline} />
               </Box>
-              <Box>For Employers</Box>
+              <Box>Learn</Box>
             </HStack>
 
             <HStack className='events-type' spacing={'13px'}  h={'8%'}>
               <Box >
                 <Icon as={IoBagHandleOutline} />
               </Box>
-              <Box>Our Solutions</Box>
+              <Box>Practice</Box>
             </HStack>
             <HStack className='events-type' spacing={'13px'}  h={'8%'}>
               <Box >
                 <Icon as={IoBagHandleOutline} />
               </Box>
-              <Box>Our Products</Box>
+              <Box>Compete</Box>
             </HStack>
             <HStack className='events-type' spacing={'13px'}  h={'8%'}>
               <Box >
                 <Icon as={IoBagHandleOutline} />
               </Box>
-              <Box>Pricing</Box>
+              <Box>Mentorship</Box>
             </HStack>
             <HStack className='events-type' spacing={'13px'}  h={'8%'}>
               <Box >
                 <Icon as={IoBagHandleOutline} />
               </Box>
-              <Box>Contact Us</Box>
+              <Box>Jobs</Box>
             </HStack>
-            <HStack className='events-type' spacing={'13px'}  h={'8%'}>
-              <Box >
-                <Icon as={IoBagHandleOutline} />
-              </Box>
-              <Box>Unstop Awards 2023</Box>
-            </HStack>
-            <HStack className='events-type' spacing={'13px'}  h={'8%'}>
-              <Box >
-                <Icon as={IoBagHandleOutline} />
-              </Box>
-              <Box>Online Quzzing Festivals</Box>
-            </HStack>
-            <HStack className='events-type' spacing={'13px'} h={'8%'}>
-              <Box >
-                <Icon as={IoBagHandleOutline} />
-              </Box>
-              <Box>Online Hackathon Festivals</Box>
-            </HStack>
-            <HStack className='events-type' spacing={'13px'} h={'8%'}>
-              <Box >
-                <Icon as={IoBagHandleOutline} />
-              </Box>
-              <Box>About Us</Box>
-            </HStack>
-            <HStack className='events-type' spacing={'13px'} h={'8%'}>
-              <Box >
-                <Icon as={IoBagHandleOutline} />
-              </Box>
-              <Box>Careers</Box>
-            </HStack>
-            <HStack className='events-type' spacing={'13px'} h={'8%'}>
-              <Box >
-                <Icon as={IoBagHandleOutline} />
-              </Box>
-              <Box>FAQs</Box>
-            </HStack>
-            <HStack className='events-type' spacing={'13px'} h={'8%'}>
-              <Box >
-                <Icon as={IoBagHandleOutline} />
-              </Box>
-              <Box>Terms & Conditions</Box>
-            </HStack>
-            <HStack className='events-type' spacing={'13px'} h={'8%'}>
-              <Box >
-                <Icon as={IoBagHandleOutline} />
-              </Box>
-              <Box>Privacy Policy</Box>
-            </HStack>
+            
           </DrawerBody>
         </DrawerContent>
       </Drawer>
