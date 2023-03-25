@@ -113,42 +113,6 @@ const Navbar = () => {
             </Flex>
           </Box>
         </Hide>
-        <Hide breakpoint="(max-width: 997px)" alignItems="center">
-          <Box mt={2}>
-            <Flex>
-              <Link to="/learn">
-                <Box className="single-menu-item">
-                  {" "}
-                  <em className="m_icons icon-learn"></em> Learn{" "}
-                </Box>
-              </Link>
-              <Link to="/practice">
-                <Box className="single-menu-item">
-                  {" "}
-                  <em className="m_icons icon-practice"></em> Practice{" "}
-                </Box>
-              </Link>
-              <Link to="/compete">
-                <Box className="single-menu-item">
-                  {" "}
-                  <em className="m_icons icon-compete"></em> Compete{" "}
-                </Box>
-              </Link>
-              <Link to="/mentorship">
-                <Box className="single-menu-item">
-                  {" "}
-                  <em className="m_icons icon-mentor"></em> Mentorship{" "}
-                </Box>
-              </Link>
-              <Link to="/jobs">
-                <Box className="single-menu-item">
-                  {" "}
-                  <em className="m_icons icon-jobs"></em> Jobs{" "}
-                </Box>
-              </Link>
-            </Flex>
-          </Box>
-        </Hide>
 
         <Hide breakpoint="(min-width: 995px)">
           <Box
