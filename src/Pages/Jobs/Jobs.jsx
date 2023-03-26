@@ -19,7 +19,7 @@ const Jobs = () => {
         mt={[8, 8, 8, 8]}
       >
         <Flex
-          justifyContent={["block", "block", "space-between", "space-between"]}
+          justifyContent={["none", "block", "space-between", "space-between"]}
         >
           <Box
             mt={[8, 8, 8, 8]}
