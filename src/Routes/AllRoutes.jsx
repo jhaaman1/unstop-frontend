@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Login from '../Components/Login/Login'
 import OauthProfile from '../Components/Login/OauthProfile'
+import NotificationDrawer from '../Components/Navbar/NotificationDrawer'
 import Compete from '../Pages/Compete/Compete'
 import Home from '../Pages/Home'
 import Jobs from '../Pages/Jobs/Jobs'
@@ -24,6 +25,7 @@ const AllRoutes = () => {
             <Route path='/practice' element={<Practice/>}/>
             <Route path='/mentorship' element={<MentorShip/>}/>
             <Route path='/jobs' element={<Jobs/>}/>
+            {/* <Route path='/registration' element={<NotificationDrawer/>}/> */}
             
             
         </Routes>

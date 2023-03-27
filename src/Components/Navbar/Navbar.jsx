@@ -179,6 +179,18 @@ const Navbar = () => {
                       ></Box>
                       <Box>
                         <Text className="users">For Users</Text>
+                        <Link to="/registration">
+                        <HStack
+                          className="users-type"
+                          spacing={"13px"}
+                          h={"40px"}
+                          >
+                          <Box>
+                            <Icon as={IoBagHandleOutline} />
+                          </Box>
+                          <Box>Registration</Box>
+                        </HStack>
+                          </Link>
                         <HStack
                           className="users-type"
                           spacing={"13px"}
@@ -219,46 +231,8 @@ const Navbar = () => {
                           </Box>
                           <Box>For Employers</Box>
                         </HStack>
-                        <HStack
-                          className="users-type"
-                          spacing={"13px"}
-                          h={"40px"}
-                        >
-                          <Box>
-                            <Icon as={IoBagHandleOutline} />
-                          </Box>
-                          <Box>For Employers</Box>
-                        </HStack>
-                        <HStack
-                          className="users-type"
-                          spacing={"13px"}
-                          h={"40px"}
-                        >
-                          <Box>
-                            <Icon as={IoBagHandleOutline} />
-                          </Box>
-                          <Box>For Employers</Box>
-                        </HStack>
-                        <HStack
-                          className="users-type"
-                          spacing={"13px"}
-                          h={"40px"}
-                        >
-                          <Box>
-                            <Icon as={IoBagHandleOutline} />
-                          </Box>
-                          <Box>For Employers</Box>
-                        </HStack>
-                        <HStack
-                          className="users-type"
-                          spacing={"13px"}
-                          h={"40px"}
-                        >
-                          <Box>
-                            <Icon as={IoBagHandleOutline} />
-                          </Box>
-                          <Box>For Employers</Box>
-                        </HStack>
+                       
+                        
                       </Box>
                       <Box>
                         <Text className="users">For Organiser</Text>
