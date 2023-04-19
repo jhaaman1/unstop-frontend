@@ -17,33 +17,37 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import PasswordInput from "../Password/PasswordInput";
 import "./Login.css";
+import { useEffect } from "react";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const toast = useToast();
-  const [isloggedin, setIsLoogedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const handleLogin = async () => {
     setIsLoading(true);
 
     const payload = {
       email: email,
       password: password,
+      username: name,
     };
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/login/user",
+        "http://localhost:8080/register/add-user",
         payload
       );
 
       if (response.data.token) {
         localStorage.setItem("login_token", response.data.token);
         localStorage.setItem("email", response.data.email);
-        setIsLoogedIn(true);
+        setIsLoggedIn(true);
         toast({
           title: "Login successful",
           status: "success",
@@ -53,9 +57,18 @@ const Login = () => {
         setIsLoading(false);
         setEmail("");
         setPassword("");
-        // Redirect to home page after successful login
-
-        navigate("/");
+        setName("");
+        //now navigate it to home page
+        navigate("/home");
+      } else if (response.data.message === "Email already exists") {
+        setError("Email id already exists");
+        setIsLoading(false);
+        toast({
+          title: "Email id already exists",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
       } else {
         setError("Invalid email or password");
         setIsLoading(false);
@@ -85,16 +98,31 @@ const Login = () => {
       });
   };
 
+  useEffect(() => {
+    const token = localStorage.getItem("login_token");
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  // if (isLoggedIn) {
+  //   return (
+  //     <div>
+  //       <p>You are already logged in!</p>
+  //     </div>
+  //   );
+  // }
+
   return (
     <Box className="logincontainer">
-      <Text className="heading-login">Welcome Back</Text>
-
+      <Text className="heading-login">Login</Text>
       <Box className="inputbox" w={["100%", "60%", "50%", "30%"]}>
-        <form>
+      {error && <Text>{error}</Text>}
+        <form onSubmit={(e) => e.preventDefault()}>
           <Flex
             justifyContent={"center"}
             margin={"auto"}
-            border={"1px solid gray"}
+            border={"1px solid white"}
             h={"50px"}
             cursor="pointer"
             // w={['100%']}
@@ -127,17 +155,33 @@ const Login = () => {
             <Divider
               orientation="horizontal"
               w={"48%"}
-              border="0.1px solid"
+              border="0.1px solid white"
             ></Divider>
             <Box>
-              <Text fontSize={"20px"}>OR</Text>
+              <Text fontSize={"20px"} color={"white"}>
+                OR
+              </Text>
             </Box>
             <Divider
               orientation="horizontal"
               w={"48%"}
-              border="0.1px solid"
+              border="0.1px solid white"
             ></Divider>
           </Flex>
+
+          <Box w={["100%", "100%", "100%", "100%"]} mt={[2, 2, 2, 4]}>
+            <FormLabel mt="4" className="email-label">
+              Full Name
+            </FormLabel>
+            <Input
+              type="text"
+              placeholder="Please enter your name"
+              id="name"
+              value={name}
+              color={"white"}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </Box>
 
           <Box w={["100%", "100%", "100%", "100%"]} mt={[2, 2, 2, 4]}>
             <FormLabel mt="4" className="email-label">
@@ -148,6 +192,7 @@ const Login = () => {
               placeholder="Email"
               id="email"
               value={email}
+              color={"white"}
               onChange={(e) => setEmail(e.target.value)}
             />
           </Box>
@@ -168,19 +213,14 @@ const Login = () => {
           </Box>
 
           <Button
-            variant={"outline"}
+            variant={"solid"}
             className="loginbutton"
             onClick={handleLogin}
+            disabled={isLoading}
+            color={"black"}
           >
-            Login
+             {isLoading ? "Loading..." : "Login"}
           </Button>
-
-          <Box className="login-not">
-            Don't have an account?{" "}
-            <span>
-              <Link to="/signup">Sign Up</Link>
-            </span>
-          </Box>
         </form>
       </Box>
     </Box>

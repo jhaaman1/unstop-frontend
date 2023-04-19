@@ -8,7 +8,6 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import React from "react";
-import Navbar from "../Components/Navbar/Navbar";
 import "./Home.css";
 import { Link } from "react-router-dom";
 

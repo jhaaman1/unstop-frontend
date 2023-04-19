@@ -13,6 +13,7 @@ function PasswordInput() {
           pr='1.2rem'
           type={show ? 'text' : 'password'}
           placeholder='Enter password'
+          color={'white'}
         />
         <InputRightElement width='4.5rem'>
           <Button h='1.75rem' size='sm' onClick={handleClick}>
