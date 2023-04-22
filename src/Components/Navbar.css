@@ -1,0 +1,23 @@
+.searchbar{
+background-color: transparent;
+border:1px solid transparent;
+outline: 0;
+padding-left: 10px;
+color:white;
+
+}
+.searchbar::-webkit-input-placeholder {
+     color: #bbb;
+   }
+
+   .nav{
+    /* border: 2px solid red; */
+    margin: auto;
+    background-color: 
+    #1a1a1a;
+}
+
+::placeholder {
+    color: white;
+    opacity: 1; /* Firefox */
+  }

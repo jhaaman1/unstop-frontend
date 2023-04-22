@@ -1,43 +1,28 @@
+import React from "react";
+import "./Navbar.css";
+import { useSelector } from "react-redux";
+
+import { Link, useNavigate } from "react-router-dom";
 import {
   Box,
   Flex,
   Image,
   Spacer,
-  useDisclosure,
   Button,
   HStack,
   InputGroup,
   InputLeftElement,
   Input,
-  Avatar,
-  Icon,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
-import React, { useEffect, useState } from "react";
-import "./Navbar.css";
-import { Link, useNavigate } from "react-router-dom";
-import { BsFillPersonCheckFill } from "react-icons/bs";
 
 const Navbar = () => {
-  const [loggedIn, setLoggedIn] = useState(false); // Initialize the isLoggedIn state to false
+  const isAuth = useSelector((store) => store.AuthReducer.isAuth);
+
   const navigate = useNavigate();
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
-  useEffect(() => {
-    const token = localStorage.getItem("login_token");
-    if (token) {
-      setLoggedIn(true);
-    }
-  }, []);
-
-  const handleLogout = () => {
-    localStorage.removeItem("login_token");
-    localStorage.removeItem("email");
-    setLoggedIn(false);
-    navigate("/login");
-  };
 
   return (
+
     <Box
       className="nav"
       w={["100%", "100%", "100%", "100%"]}
@@ -67,30 +52,24 @@ const Navbar = () => {
         <Spacer />
 
         <Box mt={"3"} display="flex">
-          {loggedIn ? (
-            <>
-              <Box className="profilebtn" h="100%">
-                <Button onClick={onOpen} variant="link" mb={4}>
-                  <Icon as={BsFillPersonCheckFill} />
+          <>
+            <HStack>
+              <Button color="white" variant="outline">
+                Menu
+              </Button>
+              <Link to="/signin">
+                <Button
+                  style={{ display: !isAuth ? "flex" : "none" }}
+                  colorScheme="yellow"
+                  color="white"
+                  variant="solid"
+                >
+                  Sign In
                 </Button>
-              </Box>
-            </>
-          ) : (
-            <>
-              <HStack>
-                <Button color="white" variant="outline">
-                  Menu
-                </Button>
-                <Link to="/login">
-                  <Button colorScheme="yellow" color="white" variant="solid">
-                    Sign In
-                  </Button>
-                </Link>
-              </HStack>
-            </>
-          )}
+              </Link>
+            </HStack>
+          </>
         </Box>
-
       </Flex>
     </Box>
   );
